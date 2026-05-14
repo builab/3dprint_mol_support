@@ -1,8 +1,11 @@
+#!/usr/bin/env python3
 """
 find_z_linkages.py
 ==================
 Finds candidate support linkages in a PDB file for 3D printing.
 Updated to output individual marker_sets per link and removed PDB/CSV output.
+
+Need to allows to do A chain & B chain separately
 """
 
 import argparse
