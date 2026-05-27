@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 """
-find_z_linkages_2chains.py
+find_z_linkages_2chains_v3.py
 ==========================
+Fix write_cmm
 Finds Z-direction inter-chain linkages between TWO specified protein chains
 in a PDB file, for 3D printing overhang support.
 
@@ -233,9 +234,6 @@ def write_cmm(pairs: List[Pair], out_path: str,
         "link":   (0.60, 0.90, 0.20),   # yellow-green
     }
 
-    def to255(c: tuple) -> Tuple[int, int, int]:
-        return tuple(round(v * 255) for v in c)
-
     lines = [
         '<?xml version="1.0" encoding="utf-8"?>',
         '<marker_sets>'
@@ -250,23 +248,23 @@ def write_cmm(pairs: List[Pair], out_path: str,
         set_name = f"{parent_name}/Link {idx} ({a1.res_seq}-{a2.res_seq})"
         lines.append(f'  <marker_set name="{set_name}">')
 
-        r1, g1, b1 = to255(COL["chain1"])
-        r2, g2, b2 = to255(COL["chain2"])
-        rl, gl, bl = to255(COL["link"])
+        r1, g1, b1 = COL["chain1"]
+        r2, g2, b2 = COL["chain2"]
+        rl, gl, bl = COL["link"]
 
         label1 = f"link{idx}_ch1 /{a1.chain}:{a1.res_seq}@{a1.name}"
         label2 = f"link{idx}_ch2 /{a2.chain}:{a2.res_seq}@{a2.name}"
 
         lines.append(
             f'    <marker id="1" x="{a1.x:.3f}" y="{a1.y:.3f}" z="{a1.z:.3f}"'
-            f' r="{r1}" g="{g1}" b="{b1}" radius="{marker_radius:.3f}" label="{label1}"/>'
+            f' r="{r1:.3f}" g="{g1:.3f}" b="{b1:.3f}" radius="{marker_radius:.3f}" label="{label1}"/>'
         )
         lines.append(
             f'    <marker id="2" x="{a2.x:.3f}" y="{a2.y:.3f}" z="{a2.z:.3f}"'
-            f' r="{r2}" g="{g2}" b="{b2}" radius="{marker_radius:.3f}" label="{label2}"/>'
+            f' r="{r2:.3f}" g="{g2:.3f}" b="{b2:.3f}" radius="{marker_radius:.3f}" label="{label2}"/>'
         )
         lines.append(
-            f'    <link id1="1" id2="2" r="{rl}" g="{gl}" b="{bl}" radius="{link_radius:.3f}"'
+            f'    <link id1="1" id2="2" r="{rl:.3f}" g="{gl:.3f}" b="{bl:.3f}" radius="{link_radius:.3f}"'
             f' label="Dist={p.dist_3d:.2f}A"/>'
         )
         lines.append('  </marker_set>')

@@ -250,22 +250,22 @@ def draw_dual_tubes(session, cmm_path, outer_rad=1.0, inner_rad=0.5,
 # ---------------------------------------------------------------------------
 
 draw_dual_tubes(session, 'contact_a_gtp.cmm',
-                outer_rad=1, inner_rad=0.6, fraction=0.75, reverse_mode="thin")
+                outer_rad=1, inner_rad=0.5, fraction=0.75, reverse_mode="thin")
 
 draw_dual_tubes(session, 'contact_b_gdp.cmm',
-                outer_rad=1, inner_rad=0.6, fraction=0.75, reverse_mode="thin")
+                outer_rad=1, inner_rad=0.5, fraction=0.75, reverse_mode="thin")
 
 draw_dual_tubes(session, 'achain_z_linkages.cmm',
-                outer_rad=0.7, reverse_mode="solid")
+                outer_rad=0.8, reverse_mode="solid")
 
 draw_dual_tubes(session, 'achain_frag.cmm',
-                outer_rad=0.7, reverse_mode="solid")
+                outer_rad=0.8, reverse_mode="solid")
                 
 draw_dual_tubes(session, 'bchain_z_linkages.cmm',
-                outer_rad=0.7, reverse_mode="solid")
+                outer_rad=0.8, reverse_mode="solid")
 
 draw_dual_tubes(session, 'bchain_frag.cmm',
-                outer_rad=0.7, reverse_mode="solid")
+                outer_rad=0.8, reverse_mode="solid")
 
 draw_dual_tubes(session, 'tubulin_2chain_z_linkages.cmm',
-                fraction=0.5, reverse_mode="hollow", outer_rad=1, inner_rad=0.6)
+                fraction=0.5, reverse_mode="hollow", outer_rad=1, inner_rad=0.5)
