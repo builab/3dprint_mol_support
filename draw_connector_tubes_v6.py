@@ -340,11 +340,11 @@ def draw_dual_tubes(session, cmm_path, outer_rad=1.0, inner_rad=0.5,
 
 # Example of customizing thin_shorten_fraction to pull back the internal stick:
 draw_dual_tubes(session, 'contact_a_gtp.cmm',
-                outer_rad=1, inner_rad=0.5, fraction=0.75, 
+                outer_rad=1, inner_rad=0.5, fraction=0.85, 
                 reverse_mode="thin", thin_shorten_fraction=0.15)
 
 draw_dual_tubes(session, 'contact_b_gdp.cmm',
-                outer_rad=1, inner_rad=0.5, fraction=0.75, 
+                outer_rad=1, inner_rad=0.5, fraction=0.85, 
                 reverse_mode="thin", thin_shorten_fraction=0.15)
 
 draw_dual_tubes(session, 'achain_z_linkages.cmm',
